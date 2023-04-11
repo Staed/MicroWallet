@@ -1,26 +1,50 @@
-import { Accordion, Card, Button } from 'react-bootstrap';
+import Box from '@mui/material/Box';
+import Accordion from '@mui/material/Accordion';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Grid from '@mui/material/Unstable_Grid2';
+import Divider from '@mui/material/Divider';
 
-function Wallet() {
+export default function Wallet() {
     return(
-        <Accordion>
-            <Accordion.Item eventKey="0">
-                <Accordion.Header>
-                    Bitcoin
-                </Accordion.Header>
-                <Accordion.Body>
-                    Last 7 Days: In/Out
-                </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="0">
-                <Accordion.Header>
-                    Etherum
-                </Accordion.Header>
-                <Accordion.Body>
-                    Last 7 Days: In/Out
-                </Accordion.Body>
-            </Accordion.Item>
-        </Accordion>
+        <Grid
+            container
+            direction="column"
+            alignItems="center"
+            justifyContent="center"
+            minHeight="100vh"
+            bgcolor="lightblue">
+            <Box m="a">
+                <Typography variant="h2">USER NAME</Typography>
+            </Box>
+            <Divider />
+            <Grid item xs={8} sm={6} md={4} spacing={2} disableEqualOverflow>
+                <Accordion>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header">
+                            <Typography>Bitcoin</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography>Last 7 Days: In/Out</Typography>
+                        kkk
+                    </AccordionDetails>
+                </Accordion>
+                <Accordion>
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="panel1a-content"
+                        id="panel2a-header">
+                            <Typography>Etherum</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Typography>Last 7 Days: In/Out</Typography>
+                    </AccordionDetails>
+                </Accordion>
+            </Grid>
+        </Grid>
     );
 }
-
-export default Wallet;
