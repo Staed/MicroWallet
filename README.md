@@ -1,3 +1,6 @@
 # MicroWallet
 
-This is a toy app to get used to React
+# Frontend
+React
+# Middle / Backend
+Express.js/Typescript + MongoDB
