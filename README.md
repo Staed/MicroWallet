@@ -1,5 +1,3 @@
-# MicroWallet
-
 # Frontend
 React
 # Middle / Backend

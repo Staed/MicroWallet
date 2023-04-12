@@ -7,6 +7,8 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Grid from '@mui/material/Unstable_Grid2';
 import Divider from '@mui/material/Divider';
 
+import FetchTransactionHistory from '../Controller/FetchTransactionHistory';
+
 export default function Wallet() {
     return(
         <Grid
@@ -29,8 +31,7 @@ export default function Wallet() {
                             <Typography>Bitcoin</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <Typography>Last 7 Days: In/Out</Typography>
-                        kkk
+                        <FetchTransactionHistory user="Staed" coin="Bitcoin" />
                     </AccordionDetails>
                 </Accordion>
                 <Accordion>
