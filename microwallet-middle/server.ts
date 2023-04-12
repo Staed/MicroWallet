@@ -34,7 +34,7 @@ app.get('/api/transactions', async (req: Request, res: Response) => {
             }
         });
 
-        console.log('Found ${transactions.length} transactions for user ${username} and coin ${coinname}');
+        console.log(`Found ${transactions.length} transactions for user ${username} and coin ${coinname}`);
         res.json(transactions);
     } catch (error) {
         console.error(error);
