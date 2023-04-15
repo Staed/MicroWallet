@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { List, ListItem, Grid } from '@mui/material';
+import { Transaction } from '../prisma_public/schema.tsx';
 
-const baseUrl = 'http://localhost:8080/api/transactions';
+const baseUrl: string = 'http://localhost:8080/api/transactions';
 
-export default function FetchTransactionHistory({user, coin}) {
-    const [transactions, setTransactions] = useState([]);
+export default function FetchTransactionHistory({user, coin}: {user: string, coin: string}): JSX.Element {
+    const [transactions, setTransactions] = useState<Transaction[]>([]);
 
     useEffect(() => {
         fetch(`${baseUrl}?user=${user}&coin=${coin}`)

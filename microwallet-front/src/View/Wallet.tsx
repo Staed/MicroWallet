@@ -1,10 +1,11 @@
+import React from 'react';
 import Box from '@mui/material/Box';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import Grid from '@mui/material/Unstable_Grid2';
+import { Grid } from '@mui/material';
 import Divider from '@mui/material/Divider';
 
 import FetchTransactionHistory from '../Controller/FetchTransactionHistory';
@@ -22,7 +23,7 @@ export default function Wallet() {
                 <Typography variant="h2">USER NAME</Typography>
             </Box>
             <Divider />
-            <Grid item xs={8} sm={6} md={4} spacing={2} disableEqualOverflow>
+            <Grid item xs={8} sm={6} md={4} spacing={2}>
                 <Accordion>
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
