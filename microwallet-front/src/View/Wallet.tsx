@@ -5,12 +5,12 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { Grid } from '@mui/material';
+import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 
 import FetchTransactionHistory from '../Controller/FetchTransactionHistory';
 
-export default function Wallet() {
+export default function Wallet({user}: {user: string}) {
     return(
         <Grid
             container
@@ -18,12 +18,13 @@ export default function Wallet() {
             alignItems="center"
             justifyContent="center"
             minHeight="100vh"
-            bgcolor="lightblue">
+            bgcolor="lightblue"
+            spacing={2}>
             <Box m="a">
                 <Typography variant="h2">USER NAME</Typography>
             </Box>
             <Divider />
-            <Grid item xs={8} sm={6} md={4} spacing={2}>
+            <Grid item xs={8} sm={6} md={4}>
                 <Accordion>
                     <AccordionSummary
                         expandIcon={<ExpandMoreIcon />}
@@ -32,7 +33,7 @@ export default function Wallet() {
                             <Typography>Bitcoin</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <FetchTransactionHistory user="Staed" coin="Bitcoin" />
+                        <FetchTransactionHistory user={user} coin="Bitcoin" />
                     </AccordionDetails>
                 </Accordion>
                 <Accordion>
@@ -43,7 +44,7 @@ export default function Wallet() {
                             <Typography>Etherum</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <Typography>Last 7 Days: In/Out</Typography>
+                        <FetchTransactionHistory user="Staed" coin="Etherum" />
                     </AccordionDetails>
                 </Accordion>
             </Grid>

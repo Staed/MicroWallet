@@ -8,6 +8,6 @@ const container = document.getElementById('root') as HTMLElement;
 const root = ReactDOM.createRoot(container);
 root.render(
   <StrictMode>
-    <Wallet/>
+    <Wallet user="Staed" />
   </StrictMode>
 );
