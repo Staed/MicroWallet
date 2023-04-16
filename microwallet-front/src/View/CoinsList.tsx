@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Coin } from '../prisma_public/schema'
 import { Accordion, AccordionSummary, AccordionDetails, Typography, CircularProgress } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import FetchTransactionHistory from '../Controller/FetchTransactionHistory';
+import TransactionsList from './TransactionsList';
 
 const baseUrl: string = 'http://localhost:8080/api/fetchUserCoins';
 
-export default function FetchCoins({user}: {user: string}): JSX.Element {
+export default function CoinsList({user}: {user: string}): JSX.Element {
     const [coins, setCoins] = useState<Coin[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -40,7 +40,7 @@ export default function FetchCoins({user}: {user: string}): JSX.Element {
                             <Typography>{coin.name}</Typography>
                         </AccordionSummary>
                         <AccordionDetails>
-                            <FetchTransactionHistory user={user} coin={coin.name}/>
+                            <TransactionsList user={user} coin={coin.name}/>
                         </AccordionDetails>
                     </Accordion>
                 );

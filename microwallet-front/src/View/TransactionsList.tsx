@@ -6,7 +6,7 @@ import { Transaction } from '../prisma_public/schema';
 
 const baseUrl: string = 'http://localhost:8080/api/fetchTransactions';
 
-export default function FetchTransactionHistory({user, coin}: {user: string, coin: string}): JSX.Element {
+export default function TransactionsList({user, coin}: {user: string, coin: string}): JSX.Element {
     const [transactions, setTransactions] = useState<Transaction[]>([]);
 
     useEffect(() => {

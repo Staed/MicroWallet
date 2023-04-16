@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Unstable_Grid2';
 import Divider from '@mui/material/Divider';
 
-import FetchCoins from '../Controller/FetchCoins';
+import CoinsList from './CoinsList';
 
 export default function Wallet({user}: {user: string}) {
     return(
@@ -21,7 +21,7 @@ export default function Wallet({user}: {user: string}) {
             </Box>
             <Divider />
             <Grid xs={8} sm={6} md={4}>
-                <FetchCoins user={user} />
+                <CoinsList user={user} />
             </Grid>
         </Grid>
     );
