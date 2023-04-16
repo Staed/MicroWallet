@@ -12,7 +12,7 @@ app.get('/', (req: Request, res: Response) => {
     res.send('Hello');
 });
 
-app.get('/api/transactions', async (req: Request, res: Response) => {
+app.get('/api/fetchTransactions', async (req: Request, res: Response) => {
     const username = req.query.user as string;
     const coinname = req.query.coin as string;
 
@@ -36,6 +36,33 @@ app.get('/api/transactions', async (req: Request, res: Response) => {
 
         console.log(`Found ${transactions.length} transactions for user ${username} and coin ${coinname}`);
         res.json(transactions);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Something went wrong');
+    }
+})
+
+app.get('/api/fetchUserCoins', async (req: Request, res: Response) => {
+    const username = req.query.user as string;
+
+    if (!username) {
+        return res.status(400).send('User query parameter is required.');
+    }
+
+    const user = await prisma.user.findFirst({ where: { name: username as string }});
+
+    try {
+        const coins: { type: { name: string }}[] = await prisma.transaction.findMany({
+            where: { owner: user as User },
+            distinct: ['typeId'],
+            select: {
+                type: true
+            }
+        })
+
+        console.log(`Found ${coins.length} types of coins in transactions for user ${username}`);
+        console.log(coins);
+        res.json(coins);
     } catch (error) {
         console.error(error);
         res.status(500).send('Something went wrong');
