@@ -61,7 +61,6 @@ app.get('/api/fetchUserCoins', async (req: Request, res: Response) => {
         })
 
         console.log(`Found ${coins.length} types of coins in transactions for user ${username}`);
-        console.log(coins);
         res.json(coins);
     } catch (error) {
         console.error(error);
