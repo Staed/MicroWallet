@@ -1,7 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
+import Grid from '@mui/material/Unstable_Grid2';
 import Divider from '@mui/material/Divider';
 
 import FetchCoins from '../Controller/FetchCoins';
@@ -20,7 +20,9 @@ export default function Wallet({user}: {user: string}) {
                 <Typography variant="h2">USER NAME</Typography>
             </Box>
             <Divider />
-            <FetchCoins user={user} />
+            <Grid xs={8} sm={6} md={4}>
+                <FetchCoins user={user} />
+            </Grid>
         </Grid>
     );
 }

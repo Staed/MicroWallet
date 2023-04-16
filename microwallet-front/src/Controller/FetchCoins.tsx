@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Coin } from '../prisma_public/schema'
-import { Grid, Accordion, AccordionSummary, AccordionDetails, Typography, CircularProgress } from '@mui/material';
+import { Accordion, AccordionSummary, AccordionDetails, Typography, CircularProgress } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import FetchTransactionHistory from '../Controller/FetchTransactionHistory';
 
@@ -12,7 +12,7 @@ export default function FetchCoins({user}: {user: string}): JSX.Element {
 
     useEffect(() => {
         async function fetchCoin() {
-            const res = await fetch(`${baseUrl}?user=${user}`)
+            await fetch(`${baseUrl}?user=${user}`)
                 .then(res => res.json())
                 .then(data => {
                     setCoins(data.map((dat: any) => dat.type));
@@ -29,10 +29,10 @@ export default function FetchCoins({user}: {user: string}): JSX.Element {
     }
 
     return (
-        <Grid item xs={8} sm={6} md={4}>
+        <>
             {coins.map((coin: Coin, index: number) => {
                 return (
-                    <Accordion>
+                    <Accordion key={`accordion${user}${index}`}>
                         <AccordionSummary
                             expandIcon={<ExpandMoreIcon />}
                             aria-controls={`panel${index}content`}
@@ -45,6 +45,6 @@ export default function FetchCoins({user}: {user: string}): JSX.Element {
                     </Accordion>
                 );
             })}
-        </Grid>
+        </>
     );
 }

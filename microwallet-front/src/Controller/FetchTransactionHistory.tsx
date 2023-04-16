@@ -18,9 +18,9 @@ export default function FetchTransactionHistory({user, coin}: {user: string, coi
 
     return (
         <List>
-            {transactions.map(transaction => {
+            {transactions.map((transaction: Transaction, index: number) => {
                 return (
-                <ListItem key={transaction.id}>
+                <ListItem key={`list${coin}${index}`}>
                     <Grid container>
                         <Grid item xs={4}>{transaction.amount}</Grid>
                         <Grid item xs={8}>{transaction.notes}</Grid>
